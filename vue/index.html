@@ -10,18 +10,22 @@
 
 
     <div id="app">
-        <h1 v-if="becado==true">Tengo beca xDDDD</h1>
-        <h1 v-else>Ya no tengo la beca ;v</h1>
+       <h1>Lista de carrito</h1>
+       <input v-model ="producto" type="text" placeholder="nombre del producto">
+       <button @click="agregarProducto()">Agregar</button>
+       <button @click="carrito=[]">Limpiar</button>
 
-        <button @click="conBeca()">Estas becado</button>
-        <button @click="sinBeca()">YA NO estas becado</button>
-
+        <ul>
+            <li v-for="producto in carrito">
+                {{producto}}
+            </li>
+        </ul>
 
     </div>
 
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src ="condicionales.js"></script>
+    <script src ="carrito.js"></script>
     
 
 
