@@ -11,17 +11,25 @@
 
 
     <div class="container mt-3" id="app">
+        
+        <h3>Escoge una fruta</h3>
+
+          <select class="form-control" v-model ="fruta">
+
+            <option value="manzana">Manzana</option>
+            <option>Piña</option>
+            <option>Naranja</option>
+            <option>Fresa</option>
+            <option>Platano</option>
+          </select>
+          <img :src="fotofruta">
+        
+
+       
 
 
 
-        <label for="customRange1" class="form-label">Rango</label>
-        <input v-model="valor" min="0" max="100" type="range" class="form-range" id="customRange1">
-
-
-        <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25 " aria-valuemin="0" aria-valuemax="100">
-            <div  class="progress-bar" :style="'width: '+ valor+'%'">{{valor}}</div>
-          </div>
-
+        
 
     </div>
 
@@ -29,7 +37,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src ="Vue.js"></script>
+    <script src ="frut.js"></script>
     
 
 
