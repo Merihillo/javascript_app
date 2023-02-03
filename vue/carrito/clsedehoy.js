@@ -1,4 +1,4 @@
-Vue.createApp({
+const app=Vue.createApp({
     data(){
         return{
             colorTable:'info',
@@ -28,4 +28,4 @@ Vue.createApp({
             this.productos.push(producto);
         }
     }
-}).mount("#app")
+})
