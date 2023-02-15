@@ -16,7 +16,18 @@
        <div v-if="pokemon!=null" class="card" style="width: 18rem;">
         <img :src="pokemon.sprites.other.dream_world.front_default" class="card-img-top" alt="...">
         <div class="card-body">
-          <p class="card-text">{{pokemon.name}}</p>
+          <h5 class="card-title">{{pokemon.name}}</h5>
+          <p>abilidades</p>
+          <span v-for="abilidad in pokemon.abilities" class="mx-1 badge bg-warning">
+            {{abilidad.ability.name}}
+          </span>
+
+          <p>Game_Indices</p>
+          <span v-for="gameindices in pokemon.game_indices" class="mx-1 badge bg-warning">
+            {{gameindices.version.name}}
+          </span>
+
+         
           <p class="card-text"> Experiencia: {{pokemon.base_experience}}</p>
           <p class="card-text"> Altura: {{pokemon.height}}</p>
           <p class="card-text"> Order: {{pokemon.order}}</p>
