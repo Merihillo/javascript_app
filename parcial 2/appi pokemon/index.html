@@ -14,20 +14,33 @@
        <button @click="getPokemon" class="btn btn-primary mb-5">Generar</button>
 
        <div v-if="pokemon!=null" class="card" style="width: 18rem;">
+
+        <h3><span class=" container badge bg-warning">{{pokemon.name}}</span></h3>
+
         <img :src="pokemon.sprites.other.dream_world.front_default" class="card-img-top" alt="...">
+
         <div class="card-body">
-          <h5 class="card-title">{{pokemon.name}}</h5>
-          <p>abilidades</p>
-          <span v-for="abilidad in pokemon.abilities" class="mx-1 badge bg-warning">
+
+          <h6>Habilidades</h6>
+          <span v-for="abilidad in pokemon.abilities" class="mx-1 badge bg-warning text-dark">
             {{abilidad.ability.name}}
           </span>
 
-          <p>Game_Indices</p>
-          <span v-for="gameindices in pokemon.game_indices" class="mx-1 badge bg-warning">
+          <h6>Game_Indices</h6>
+          <span v-for="gameindices in pokemon.game_indices" class="mx-1 badge bg-warning text-dark">
             {{gameindices.version.name}}
           </span>
 
-         
+          <h6>Stats</h6>
+          <span v-for="sta in pokemon.stats" class="mx-1 badge bg-warning text-dark">
+            {{sta.stat.name}}
+          </span>
+
+          <h6>Type</h6>
+          <span v-for="typ in pokemon.types" class="mx-1 badge bg-warning text-dark">
+            {{typ.type.name}}
+          </span>
+
           <p class="card-text"> Experiencia: {{pokemon.base_experience}}</p>
           <p class="card-text"> Altura: {{pokemon.height}}</p>
           <p class="card-text"> Order: {{pokemon.order}}</p>
