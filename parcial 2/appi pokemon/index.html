@@ -11,43 +11,47 @@
 
 
     <div class="container mt-3" id="app">
-       <button @click="getPokemon" class="btn btn-primary mb-5">Generar</button>
 
-       <div v-if="pokemon!=null" class="card" style="width: 18rem;">
 
-        <h3><span class=" container badge bg-warning">{{pokemon.name}}</span></h3>
+      <div class="d-flex flex-wrap">
+    
 
-        <img :src="pokemon.sprites.other.dream_world.front_default" class="card-img-top" alt="...">
+        <div v-for="pokemon in pokemones" v-if="pokemones.length>0" class="card" style="width: 18rem;">
 
-        <div class="card-body">
+          <h3><span class=" container badge bg-warning">{{pokemon.name}}</span></h3>
 
-          <h6>Habilidades</h6>
-          <span v-for="abilidad in pokemon.abilities" class="mx-1 badge bg-warning text-dark">
-            {{abilidad.ability.name}}
-          </span>
+          <img :src="pokemon.sprites.other.dream_world.front_default" class="card-img-top" alt="...">
 
-          <h6>Game_Indices</h6>
-          <span v-for="gameindices in pokemon.game_indices" class="mx-1 badge bg-warning text-dark">
-            {{gameindices.version.name}}
-          </span>
+          <div class="card-body">
 
-          <h6>Stats</h6>
-          <span v-for="sta in pokemon.stats" class="mx-1 badge bg-warning text-dark">
-            {{sta.stat.name}}
-          </span>
+            <h6>Habilidades</h6>
+            <span v-for="abilidad in pokemon.abilities" class="mx-1 badge bg-warning text-dark">
+              {{abilidad.ability.name}}
+            </span>
 
-          <h6>Type</h6>
-          <span v-for="typ in pokemon.types" class="mx-1 badge bg-warning text-dark">
-            {{typ.type.name}}
-          </span>
+            <h6>Game_Indices</h6>
+            <span v-for="gameindices in pokemon.game_indices" class="mx-1 badge bg-warning text-dark">
+              {{gameindices.version.name}}
+            </span>
 
-          <p class="card-text"> Experiencia: {{pokemon.base_experience}}</p>
-          <p class="card-text"> Altura: {{pokemon.height}}</p>
-          <p class="card-text"> Order: {{pokemon.order}}</p>
+            <h6>Stats</h6>
+            <span v-for="sta in pokemon.stats" class="mx-1 badge bg-warning text-dark">
+              {{sta.stat.name}}
+            </span>
+
+            <h6>Type</h6>
+            <span v-for="typ in pokemon.types" class="mx-1 badge bg-warning text-dark">
+              {{typ.type.name}}
+            </span>
+
+            <p class="card-text"> Experiencia: {{pokemon.base_experience}}</p>
+            <p class="card-text"> Altura: {{pokemon.height}}</p>
+            <p class="card-text"> Order: {{pokemon.order}}</p>
 
 
         </div>
       </div>
+    </div>
 
 
       
