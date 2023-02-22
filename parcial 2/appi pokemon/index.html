@@ -13,45 +13,51 @@
     <div class="container mt-3" id="app">
 
 
+      <div v-if="loading==true">
+        <img src="../imagenes/loading.gif" alt="cargando...">
+        <h4 class="card-title">CARGANDO...</h4>
+      </div>
+
+
       <div class="d-flex flex-wrap">
     
 
-        <div v-for="pokemon in pokemones" v-if="pokemones.length>0" class="card" style="width: 18rem;">
+        <div v-if="loading==false" v-for="pokemon in pokemones"  class="card" style="width: 18rem;">
 
-          <h3><span class=" container badge bg-warning">{{pokemon.name}}</span></h3>
+            <h3><span class=" container badge bg-warning">{{pokemon.name}}</span></h3>
 
-          <img :src="pokemon.sprites.other.dream_world.front_default" class="card-img-top" alt="...">
+            <img :src="pokemon.sprites.other.dream_world.front_default" class="card-img-top" alt="...">
 
-          <div class="card-body">
+            <div class="card-body">
 
-            <h6>Habilidades</h6>
-            <span v-for="abilidad in pokemon.abilities" class="mx-1 badge bg-warning text-dark">
-              {{abilidad.ability.name}}
-            </span>
+              <h6>Habilidades</h6>
+              <span v-for="abilidad in pokemon.abilities" class="mx-1 badge bg-warning text-dark">
+                {{abilidad.ability.name}}
+              </span>
 
-            <h6>Game_Indices</h6>
-            <span v-for="gameindices in pokemon.game_indices" class="mx-1 badge bg-warning text-dark">
-              {{gameindices.version.name}}
-            </span>
+              <h6>Game_Indices</h6>
+              <span v-for="gameindices in pokemon.game_indices" class="mx-1 badge bg-warning text-dark">
+                {{gameindices.version.name}}
+              </span>
 
-            <h6>Stats</h6>
-            <span v-for="sta in pokemon.stats" class="mx-1 badge bg-warning text-dark">
-              {{sta.stat.name}}
-            </span>
+              <h6>Stats</h6>
+              <span v-for="sta in pokemon.stats" class="mx-1 badge bg-warning text-dark">
+                {{sta.stat.name}}
+              </span>
 
-            <h6>Type</h6>
-            <span v-for="typ in pokemon.types" class="mx-1 badge bg-warning text-dark">
-              {{typ.type.name}}
-            </span>
+              <h6>Type</h6>
+              <span v-for="typ in pokemon.types" class="mx-1 badge bg-warning text-dark">
+                {{typ.type.name}}
+              </span>
 
-            <p class="card-text"> Experiencia: {{pokemon.base_experience}}</p>
-            <p class="card-text"> Altura: {{pokemon.height}}</p>
-            <p class="card-text"> Order: {{pokemon.order}}</p>
+              <p class="card-text"> Experiencia: {{pokemon.base_experience}}</p>
+              <p class="card-text"> Altura: {{pokemon.height}}</p>
+              <p class="card-text"> Order: {{pokemon.order}}</p>
 
 
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
 
       

@@ -1,7 +1,9 @@
 Vue.createApp({
     data(){
         return{
-            pokemones: []
+            pokemones: [],
+            loading: null
+
 
         }
     },
@@ -15,6 +17,7 @@ Vue.createApp({
             //PUT (MODIFICAR RECURSOS)
             //DELETE (ELIMINAR RECURSOS)
             //const random = Math.floor (Math.random() * 200); +random
+            this.loading = true;
 
             var i = 1;
 
@@ -25,12 +28,15 @@ Vue.createApp({
                 });
                 const pokemon = await response.json();
                  //console.log(data);
-                this.pokemon.push(pokemon);
+                this.pokemones.push(pokemon);
 
                  i++;
 
              }
+             this.loading = false;
 
         }
     }
+    //login datos del usuario
+    //elementos en un lugar
 }).mount('#app')
