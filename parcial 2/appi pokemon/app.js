@@ -4,7 +4,9 @@ Vue.createApp({
             pokemones: [],
             loading: null,
             pokemonInfo: null,
-            numero: 0
+            numero: 0,
+            pokemonImagen:'',
+            habilidades:""
 
 
         }
@@ -29,7 +31,7 @@ Vue.createApp({
                     method: 'GET'
                 });
                 const pokemon = await response.json();
-                 //console.log(data);
+                 console.log(pokemon);
                 this.pokemones.push(pokemon);
 
                  i++;
@@ -37,8 +39,17 @@ Vue.createApp({
              }
              this.loading = false;
 
+        },
+        mostrarPokemon(pokemon){
+            console.log(pokemon)
+          
+            $('#myModal').modal('show');
+            this.pokemonImagen = pokemon.sprites.other.dream_world.front_default
+            this.habilidades = pokemon.abilities.ability.name
         }
-    }
+
+    },
+   
     //login datos del usuario
     //elementos en un lugar
 }).mount('#app')
