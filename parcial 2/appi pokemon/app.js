@@ -3,10 +3,8 @@ Vue.createApp({
         return{
             pokemones: [],
             loading: null,
-            pokemonInfo: null,
-            numero: 0,
             pokemonImagen:'',
-            habilidades:""
+            habilidades:''
 
 
         }
@@ -15,7 +13,8 @@ Vue.createApp({
         this.getPokemon();
     },
     methods: {
-        async getPokemon(){ //async funcion acirncrona, le dices que no importa que no se quede estancada la pagina
+        async getPokemon(){ 
+            //async funcion acirncrona, le dices que no importa que no se quede estancada la pagina
             //GET (OBTENER RECURSOS)
             //POST (PARA CREAR RECURSOS)
             //PUT (MODIFICAR RECURSOS)
@@ -39,13 +38,13 @@ Vue.createApp({
              }
              this.loading = false;
 
-        },
-        mostrarPokemon(pokemon){
-            console.log(pokemon)
+        },mostrarPokemon(pokemon){
+            //console.log(pokemon)
+            console.log(this.habilidades)
           
             $('#myModal').modal('show');
             this.pokemonImagen = pokemon.sprites.other.dream_world.front_default
-            this.habilidades = pokemon.abilities.ability.name
+            this.habilidades= pokemon.base_experience
         }
 
     },
