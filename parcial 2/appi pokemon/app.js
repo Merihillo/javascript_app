@@ -2,7 +2,9 @@ Vue.createApp({
     data(){
         return{
             pokemones: [],
-            loading: null
+            loading: null,
+            pokemonInfo: null,
+            numero: 0
 
 
         }
