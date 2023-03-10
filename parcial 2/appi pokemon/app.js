@@ -4,7 +4,12 @@ Vue.createApp({
             pokemones: [],
             loading: null,
             pokemonImagen:'',
-            habilidades:''
+            experiencia:'',
+            abilidades:'',
+            gameIn:'',
+            altura:'',
+            id:'',
+            order:''
 
 
         }
@@ -40,11 +45,18 @@ Vue.createApp({
 
         },mostrarPokemon(pokemon){
             //console.log(pokemon)
-            console.log(this.habilidades)
+            //console.log(this.experiencia)
+            //console.log(this.habilidades)
           
             $('#myModal').modal('show');
             this.pokemonImagen = pokemon.sprites.other.dream_world.front_default
-            this.habilidades= pokemon.base_experience
+            this.experiencia= pokemon.base_experience
+            this.altura= pokemon.height
+            this.id=pokemon.id
+            this.order=pokemon.order
+            //this.gameIn= pokemon.game_indices.version
+            this.abilidades = pokemon.ability
+
         }
 
     },

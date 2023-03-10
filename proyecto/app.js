@@ -39,4 +39,4 @@ Vue.createApp({
     }
     //login datos del usuario
     //elementos en un lugar
-}).mount('#app') 0
+}).mount('#app') 

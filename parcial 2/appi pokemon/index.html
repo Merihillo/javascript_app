@@ -11,76 +11,60 @@
 <body>
 
 
-    <div class="container mt-3" id="app">
-
-
-      <div v-if="loading==true">
-        <img src="../imagenes/loading.gif" alt="cargando...">
-        <h4 class="card-title">CARGANDO...</h4>
-      </div>
+  <div class="container mt-3" id="app">
+    <div v-if="loading==true">
+      <img src="../imagenes/loading.gif" alt="cargando...">
+      <h4 class="card-title">CARGANDO...</h4>
+    </div>
       <div class="d-flex flex-wrap">
-    
-
         <div v-if="loading==false" v-for="pokemon in pokemones"  class="card" style="width: 18rem;">
-
-            <h3><span class=" container badge bg-warning">{{pokemon.name}}</span></h3>
-
-           <img :src="pokemon.sprites.other.dream_world.front_default" class="card-img-top" alt="...">
-
-               <div class="card-body">
-
-
-                <!-- Button trigger modal -->
-                <div>
-                    <button type="button" class="btn btn-primary" @click="mostrarPokemon(pokemon)">detalles
-                    </button>
-
-          
+          <h3><span class=" container badge bg-warning">{{pokemon.name}}</span></h3>
+          <img :src="pokemon.sprites.other.dream_world.front_default" class="card-img-top" alt="...">
+            <div class="card-body">
+              
+              <!-- Button trigger modal -->
+              <div>
+                <button type="button" class="btn bg-warning text-dark" @click="mostrarPokemon(pokemon)">Detalles</button>
               </div>
+            </div>
+        </div>
+      </div>
+      <!-- The Modal -->
+      <div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Pokemon</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+              <!-- Modal body -->
+            <div class="modal-body">
+              <h2>#No: {{id}}</h2>
+              <img :src="pokemonImagen" class="card-img-top" alt="...">
+              <h1 class="mx-1 badge bg-warning text-dark">Experiencia: {{experiencia}}</h1>
+              <h1 class="mx-1 badge bg-warning text-dark">Altura: {{altura}}</h1>
+            
+              <h1 :class="abilidades">Habilidades: {{abilidades}}</h1>
+              <!--<h1>Game Indices: {{gameIn}}</h1>-->
 
 
             </div>
+
+              <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn bg-warning text-dark" data-bs-dismiss="modal">Close</button>
+            </div>
+
           </div>
-
-          
         </div>
-
-
-      
-
-
-<!-- The Modal -->
-<div class="modal" id="myModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Modal Heading</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-        <img :src="pokemonImagen" class="card-img-top" alt="...">
-        <h1>Experiencia: {{habilidades}}</h1>
-
-
-      </div>
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
       </div>
 
     </div>
-  </div>
-</div>
 
 
 
- 
-    </div>
 
 
 
