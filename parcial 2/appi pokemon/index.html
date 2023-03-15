@@ -12,6 +12,14 @@
 
 
   <div class="container mt-3" id="app">
+
+    <nav class="navbar navbar-expand-sm bg-danger navbar-dark">
+      <div class="container-fluid">
+        <img src="../imagenes/pokeLogo.png" alt="cargando..." style="width: 150px" >
+      </div>
+    </nav>
+    
+
     <div v-if="loading==true">
       <img src="../imagenes/loading.gif" alt="cargando...">
       <h4 class="card-title">CARGANDO...</h4>
@@ -31,23 +39,47 @@
       </div>
       <!-- The Modal -->
       <div class="modal" id="myModal">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-scrollable ">
           <div class="modal-content">
             <!-- Modal Header -->
             <div class="modal-header">
-              <h4 class="modal-title">Pokemon</h4>
+              <h4 class="modal-title">{{nombre}}</h4>
+                 
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+
             </div>
 
               <!-- Modal body -->
             <div class="modal-body">
-              <h2>#No: {{id}}</h2>
+              <p>#No: {{id}}</p>
               <img :src="pokemonImagen" class="card-img-top" alt="...">
-              <h1 class="mx-1 badge bg-warning text-dark">Experiencia: {{experiencia}}</h1>
-              <h1 class="mx-1 badge bg-warning text-dark">Altura: {{altura}}</h1>
-            
-              <h1 :class="abilidades">Habilidades: {{abilidades}}</h1>
-              <!--<h1>Game Indices: {{gameIn}}</h1>-->
+              <h4 class="mx-1 badge bg-warning ">Experiencia: {{experiencia}}</h1>
+              <h4 class="mx-1 badge bg-warning ">Altura: {{altura}}</h1>
+              <!--<h1>habilidades:</h1>
+              <h1 v-for="abilidad in abilidades" class="mx-1 badge bg-warning text-dark">{{abilidad.ability.name}}</h1>-->
+    
+              <h6>Habilidades:</h6>
+              <span v-for="abilidad in abilidades" class="mx-1 badge bg-warning text-dark">
+                {{abilidad.ability.name}}
+              </span>
+              <h6>Tipo:</h6>
+              <span v-for="typ in types" class="mx-1 badge bg-warning text-dark">
+               {{typ.type.name}}
+              </span>
+              <h6>Movimientos:</h6>
+              <span v-for="mo in move" class="mx-1 badge bg-warning text-dark">
+                {{mo.move.name}}
+               </span>
+              <h6>Indices de juego:</h6>
+              <span v-for="gameindices in gameindi" class="mx-1 badge bg-warning text-dark">
+                {{gameindices.version.name}}
+              </span>
+              <h6>Estadisticass:</h6>
+              <span v-for="sta in stats" class="mx-1 badge bg-warning text-dark">
+               {{sta.stat.name}}
+              </span>
+
+              
 
 
             </div>

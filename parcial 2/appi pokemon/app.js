@@ -6,10 +6,14 @@ Vue.createApp({
             pokemonImagen:'',
             experiencia:'',
             abilidades:'',
-            gameIn:'',
+            gameindi:'',
             altura:'',
             id:'',
-            order:''
+            order:'',
+            stats:'',
+            types:'',
+            move:'',
+            nombre:''
 
 
         }
@@ -44,7 +48,7 @@ Vue.createApp({
              this.loading = false;
 
         },mostrarPokemon(pokemon){
-            //console.log(pokemon)
+            console.log(pokemon)
             //console.log(this.experiencia)
             //console.log(this.habilidades)
           
@@ -54,8 +58,12 @@ Vue.createApp({
             this.altura= pokemon.height
             this.id=pokemon.id
             this.order=pokemon.order
-            //this.gameIn= pokemon.game_indices.version
-            this.abilidades = pokemon.ability
+            this.gameindi= pokemon.game_indices
+            this.abilidades = pokemon.abilities
+            this.stats=pokemon.stats
+            this.types=pokemon.types
+            this.move=pokemon.moves
+            this.nombre=pokemon.name
 
         }
 
