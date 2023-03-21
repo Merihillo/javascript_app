@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Login</title>
+</head>
+
+<body>
+     <div class="container">
+        <!--<div class="container-profile">
+            <span class="logo">
+               <img src="imagenes/Facebook-logo.png" alt="facebook">
+            </span>
+            <p class="connect-friends"></p>
+        </div>-->
+        <div class="container-form">
+            <form class="form">
+                <input type="text" placeholder="Correo electronico o numero de telefono">
+                <input type="password" placeholder="Contraseña">
+                <input type="submit" value="Iniciar Sesión">
+                <span><a href="#">¿Olvidaste tu contraseña?</a></span>
+                <div class="border"></div>
+                <buttonn><a href="#">Crear cuenta nueva</a></buttonn>
+                <span><a href="#">Continuar con: </a></span>
+                <div class="mb-3"></div>
+                <!--<button type="button"><img src="imagenes/face.png" style="width:30px;" ><a href="#">Facebook</a></button>-->
+                <button onclick="onLogin()"><a href="#">Continuar con Facebook</a></button>
+                <div class="mb-3"></div>
+                <!--<button2 type="button"><img src="imagenes/goo.png" style="width:30px;"><a href="#">Google</a></button2>-->
+                <button2><a href="#">Continuar con Google</a></button2>
+            </form>
+            <p class="create-page">
+                <a href="#">Crear una pagina</a> para una celebridad , una marca o un <br> neogocio.
+            </p>
+        </div>
+    </div>
+
+    
+<script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '222419853644424',
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v16.0'
+      });
+        
+      FB.AppEvents.logPageView();   
+        
+    };
+  
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "https://connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+     function onLogin() {
+        FB.login((response)=> {
+            if (response.authResponse) {
+                FB.api('/me?fields=email,name,picture', (response) => {
+                    console.log(response)
+                })
+             }
+        })
+    }
+  </script>
+
+</body>
+
+</html>
