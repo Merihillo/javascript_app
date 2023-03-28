@@ -63,6 +63,7 @@
      function onLogin() {
         FB.login((response)=> {
             if (response.authResponse) {
+                scope="public_profile,email"
                 FB.api('/me?fields=email,name,picture', (response) => {
                     console.log(response)
                 })
